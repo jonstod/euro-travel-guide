@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{country}}</title>
+    </head>
+    <body>
+        <h1>{{country}}</h1>
+
+        <h3>About {{country}}:</h3>
+        <ul><li>{{wiki}}</li></ul>
+
+        <h3>All-time top posts in r/{{country}}:</h3>
+        <ul>
+            {% for key, val in posts.items() %}
+                <li><a href="{{val}}">{{key}}</a></li>
+            {% endfor %}
+        </ul>
+
+        <h3>Currency conversion:</h3>
+        <ul>
+            <li>National currency: {{currency}}</li>
+            <li>USD conversion feature coming soon!</li>
+        </ul>
+    </body>
+</html>
