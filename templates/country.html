@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>{{country}}</title>
     </head>
     <body>
@@ -9,17 +10,17 @@
         <h3>About {{country}}:</h3>
         <ul><li>{{wiki}}</li></ul>
 
-        <h3>All-time top posts in r/{{country}}:</h3>
+        <h3>All-time top posts in r/{{sub}}:</h3>
         <ul>
             {% for key, val in posts.items() %}
                 <li><a href="{{val}}">{{key}}</a></li>
             {% endfor %}
         </ul>
 
-        <h3>Currency conversion:</h3>
+        <h3>Currency:</h3>
         <ul>
             <li>National currency: {{currency}}</li>
-            <li>USD conversion feature coming soon!</li>
+            <li>1 {{currency}} = {{conv_rate}}</li>
         </ul>
     </body>
 </html>
