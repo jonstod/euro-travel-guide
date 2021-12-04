@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <title>{{country}}</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <title>{{country}}</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
+
     <body>
-        <h1>
-            <img
-            src="https://flagcdn.com/w40/{{flag}}.png"
-            srcset="https://flagcdn.com/w80/{{flag}}.png 2x"
-            width="40"
-            alt="{{country}}"> {{country}}
-        </h1>
 
-        <h3>
-            <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/8/80/Wikipedia-logo-v2.svg"
-            width="36"
-            alt="Wikipedia icon">
-            About {{country}}:</h3>
-        <ul><li>{{wiki}}</li></ul>
+        <div class="navbar">
+            <nav>
+                <p><img src="../static/globe.png" width=48 alt="globe icon"></p>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Browse Countries <img src="../static/dropdown.png" width="8" alt="dropdown icon"></a>
+                        <div class="dropdown">
+                            <ul>
+                                {% for x in countries %}
+                                    <li><a href="/{{x}}">{{x}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
 
-        <h3>
-            <i class="fa fa-reddit" style="font-size:36px"></i>
-            All-time top posts in r/{{sub}}:</h3>
-        <ul>
-            {% for key, val in posts.items() %}
-                <li><a href="{{val}}">{{key}}</a></li>
-            {% endfor %}
-        </ul>
+        <div class="content">
+            <h1>
+                <img
+                src="https://flagcdn.com/w40/{{flag}}.png"
+                srcset="https://flagcdn.com/w80/{{flag}}.png 2x"
+                width="40"
+                alt="{{country}}"> {{country}}
+            </h1>
 
-        <h3><img src="https://cdn-icons.flaticon.com/png/512/625/premium/625599.png?token=exp=1638332474~hmac=235295f2ca585c71d4193101012b692a" width="36"> Currency:</h3>
-        <ul>
-            <li>National currency: {{currency}}</li>
-            <li>1 {{currency}} = {{conv_rate}}</li>
-        </ul>
-        <p><a href="/">Return to homepage</a></p>
+            <br>
+    
+            <h3>
+                <img 
+                src="../static/wiki.png" width="24" alt="Wikipedia icon">
+                About {{country}}:</h3>
+            <p>{{wiki}}</p>
+
+            <br>
+
+            <h3>
+                <img src="../static/reddit.png" width="24" alt="Reddit icon">
+                All-time top posts in r/{{sub}}:</h3>
+            <ol>
+                {% for key, val in posts.items() %}
+                    <li><a href="{{val}}">{{key}}</a></li>
+                {% endfor %}
+            </ol>
+    
+            <br>
+
+            <h3><img src="../static/money.png" width="24" alt="Money icon"> Currency:</h3>
+            <p>National currency: {{currency}}</p>
+            <p>1 {{currency}} = {{conv_rate}}</p>
+        </div>
+        
     </body>
 </html>

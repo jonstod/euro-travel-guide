@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <title>European Travel Guide - Home</title>
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <title>EuroGuide</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
     </head>
+
     <body>
-        <h1>European Travel Guide</h1>
-        <h3>Select a country to learn more:</h3>
-        {% for x in countries %}
-            <p><a href="/{{x}}">{{x}}</a></p>
-        {% endfor %}
-        <img src="https://cdn.britannica.com/67/367-050-0F839196/Europe.jpg" alt="britannica.com">
+
+        <div class="navbar">
+            <nav>
+                <p><img src="../static/globe.png" width=48 alt="globe icon"></p>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Browse Countries <img src="../static/dropdown.png" width="8" alt="dropdown icon"></a>
+                        <div class="dropdown">
+                            <ul>
+                                {% for x in countries %}
+                                    <li><a href="/{{x}}">{{x}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <br>
+        <div class="content">
+            <h1>EuroGuide - a traveler's guide to everything Europe.</h1>
+            <br>
+            <p>Select a country from the dropdown above to learn more!</p>
+        </div>
+        
+        
     </body>
+
 </html>

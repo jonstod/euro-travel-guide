@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+        <title>About</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+    </head>
+
+    <body>
+
+        <div class="navbar">
+            <nav>
+                <p><img src="../static/globe.png" width=48 alt="globe icon"></p>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="#">Browse Countries <img src="../static/dropdown.png" width="8" alt="dropdown icon"></a>
+                        <div class="dropdown">
+                            <ul>
+                                {% for x in countries %}
+                                    <li><a href="/{{x}}">{{x}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+            <h1>About EuroGuide:</h1>
+            <br>
+            <p>
+                EuroGuide is a student-developed web application developed to provide a general overview of all United Nations members and observers in Europe.
+                On each page, you will find general information pertaining to the respective country, sourced from the country's 
+                <a href="https://wikipedia.com">Wikipedia</a> page, a popular subreddit (a community hosted on <a href="https://www.reddit.com">Reddit</a>),
+                and the <a href="https://www.federalreserve.gov">United States Federal Reserve</a>. This information includes the general information about a country
+                listed on its Wikipedia page, the top 10 upvoted posts of all-time on a country's selected subreddit, and the conversion rate between a country's
+                official currency and the U.S. Dollar when available.
+            </p>
+            <br>
+            <p>
+                I hope that you will find this resource useful, whether you are using it to plan your next trip, brainstorm travel ideas, do some simple research, 
+                or even just to pass by to take a peek at my work. Whichever it may be - thanks for looking, happy travels, and Go Beavs!
+            </p>
+            <br>
+            <p>- Jonathon Stoddart</p>
+        </div>
+        
+    </body>
+
+</html>
