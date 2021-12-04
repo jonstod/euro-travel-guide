@@ -1,6 +1,7 @@
 # EuroGuide
 A Flask/Python web application utilizing microservice achitecture.
 
+Click on the screenshot below to see a video demonstration!
 [![Video Demonstration](https://img.youtube.com/vi/2qtYZIh6Gtw/0.jpg)](https://www.youtube.com/watch?v=2qtYZIh6Gtw)
 
 ### About EuroGuide
